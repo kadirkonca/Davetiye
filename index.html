@@ -20,7 +20,7 @@
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            overflow: hidden; /* Mühür açılmadan ve butonla ilerlemeden kaydırmayı kısıtla */
+            overflow: hidden; 
             scroll-behavior: smooth;
         }
 
@@ -54,24 +54,24 @@
 
         .seal-container { cursor: pointer; text-align: center; }
         .seal {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             background: radial-gradient(circle, #d4af37, #aa8522);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             font-family: 'Playfair Display', serif;
             color: white;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: bold;
         }
 
         /* --- İÇERİK --- */
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 5px; color: var(--gold); }
-        h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 0; }
-        p { font-size: 1rem; max-width: 500px; line-height: 1.6; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 5px; color: var(--gold); }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 0; color: var(--gold); }
+        p { font-size: 1.1rem; max-width: 500px; line-height: 1.6; padding: 0 10px; }
 
         /* --- NAVİGASYON OKU --- */
         .next-btn {
@@ -93,20 +93,23 @@
 
         .btn {
             margin-top: 20px;
-            padding: 10px 25px;
+            padding: 12px 30px;
             border: 1px solid var(--gold);
             background: transparent;
             color: var(--gold);
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            font-weight: bold;
             transition: 0.3s;
+            border-radius: 5px;
         }
 
         .btn:hover { background: var(--gold); color: white; }
 
+        /* Bölüm Arka Planları */
         #section2 { background-color: #fdfaf6; }
-        #section3 { background-color: #f9f6f0; }
+        #section3 { background-color: #faf7f2; }
         #section4 { background-color: #fdfaf6; }
         #section5 { background-color: #f7f2eb; }
 
@@ -117,52 +120,49 @@
     <div id="entry-overlay" onclick="goToSection('section2')">
         <div class="seal-container">
             <div class="seal">Z&O</div>
-            <p style="margin-top: 20px; color: var(--gold); letter-spacing: 2px;">DAVETİYEYİ AÇ</p>
+            <p style="margin-top: 25px; color: var(--gold); letter-spacing: 3px; font-weight: bold;">DAVETİYEYİ AÇ</p>
         </div>
     </div>
 
     <section id="section2">
         <h1>Zeynep & Ozan</h1>
-        <p>Birlikteliğimizi resmileştireceğimiz bu özel günde yanımızda olmanızdan mutluluk duyarız.</p>
+        <p>Hayatımızın en anlamlı gününde, sevgimizi sizinle paylaşmak için sabırsızlanıyoruz.</p>
         <div class="next-btn" onclick="goToSection('section3')">Tarih Bilgisi ▼</div>
     </section>
 
     <section id="section3">
         <h2>16 Mayıs 2026</h2>
         <p>Cumartesi | Saat: 19:00</p>
-        <div id="countdown" style="color: var(--gold); margin: 15px 0; font-weight: bold;"></div>
+        <div id="countdown" style="color: var(--gold); margin: 20px 0; font-weight: bold; font-size: 1.2rem;"></div>
         <div class="next-btn" onclick="goToSection('section4')">Konum Bilgisi ▼</div>
     </section>
 
     <section id="section4">
         <h2>Düğün Mekanı</h2>
         <p>Aşk Bahçesi Kır Düğün Salonu<br>Beykoz, İstanbul</p>
-        <a href="https://maps.app.goo.gl/PVbDEC21Ks684diM6" target="_blank" class="btn">Haritada Gör</a>
+        <a href="https://maps.google.com" target="_blank" class="btn">Yol Tarifi Al</a>
         <div class="next-btn" onclick="goToSection('section5')">Anı Köşesi ▼</div>
     </section>
 
     <section id="section5">
         <h2>Anı Köşesi</h2>
-        <p>Bizim için çektiğiniz fotoğrafları paylaşarak bu günü ölümsüzleştirmemize yardım edin.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeNjlrJsnOLmzoxIHP8bX0Q22qdx2mt1QYeTjWn48ykG4dbFg/viewform?usp=dialog" target="_blank" class="btn">Fotoğraf Yükle</a>
+        <p>Bu mutlu günümüzden kareleri bizimle paylaşmak ister misiniz?</p>
+        <a href="https://wa.me/905XXXXXXXXX?text=Merhaba!%20Düğününüzden%20bu%20güzel%20kareleri%20sizinle%20paylaşmak%20istedik." target="_blank" class="btn">Fotoğraf Gönder</a>
     </section>
 
     <script>
         function goToSection(sectionId) {
-            // Eğer mühür ekranındaysak önce mühürü kaldır
             if (sectionId === 'section2') {
                 document.getElementById('entry-overlay').style.transform = 'translateY(-100%)';
-                // Animasyon bitince mühür katmanını tamamen yok et ki butonlara engel olmasın
                 setTimeout(() => {
                     document.getElementById('entry-overlay').style.display = 'none';
+                    document.body.style.overflowY = 'auto'; // İçerik açılınca kaydırmayı serbest bırak
                 }, 1200);
             }
-            
-            // İlgili bölüme kaydır
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Geri Sayım
+        // Geri Sayım Scripti
         const weddingDate = new Date("May 16, 2026 19:00:00").getTime();
         setInterval(function() {
             const now = new Date().getTime();
