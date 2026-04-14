@@ -107,7 +107,6 @@
 
         .btn:hover { background: var(--gold); color: white; }
 
-        /* Bölüm Arka Planları */
         #section2 { background-color: #fdfaf6; }
         #section3 { background-color: #faf7f2; }
         #section4 { background-color: #fdfaf6; }
@@ -139,8 +138,8 @@
 
     <section id="section4">
         <h2>Düğün Mekanı</h2>
-        <p>Aşk Bahçesi Kır Düğün Salonu<br>Beykoz, İstanbul</p>
-        <a href="https://maps.google.com" target="_blank" class="btn">Yol Tarifi Al</a>
+        <p>Moda Düğün Salonu<br>Kepez / Antalya</p>
+        <a href="https://maps.app.goo.gl/PVbDEC21Ks684diM6" target="_blank" class="btn">Yol Tarifi Al</a>
         <div class="next-btn" onclick="goToSection('section5')">Anı Köşesi ▼</div>
     </section>
 
@@ -156,13 +155,12 @@
                 document.getElementById('entry-overlay').style.transform = 'translateY(-100%)';
                 setTimeout(() => {
                     document.getElementById('entry-overlay').style.display = 'none';
-                    document.body.style.overflowY = 'auto'; // İçerik açılınca kaydırmayı serbest bırak
+                    document.body.style.overflowY = 'auto';
                 }, 1200);
             }
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Geri Sayım Scripti
         const weddingDate = new Date("May 16, 2026 19:00:00").getTime();
         setInterval(function() {
             const now = new Date().getTime();
