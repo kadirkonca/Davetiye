@@ -8,29 +8,18 @@
     
     <style>
         :root {
-            --bg-dark: #0f172a; /* Derin Lacivert */
-            --gold: #d4af37;
-            --text-light: #f1f5f9;
+            --bg-color: #fcf9f2; /* Yumuşak Krem */
+            --gold: #b38b4d; /* Zarif Altın */
+            --text-color: #444; /* Füme */
         }
 
         body, html {
             margin: 0; padding: 0; height: 100%;
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            background-color: var(--bg-color);
+            color: var(--text-color);
             overflow: hidden; 
             scroll-behavior: smooth;
-        }
-
-        /* Yıldızlı Gece Efekti */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-            opacity: 0.3;
-            z-index: 1;
-            pointer-events: none;
         }
 
         section {
@@ -47,99 +36,151 @@
             z-index: 2;
         }
 
-        /* --- MÜHÜR EKRANI (Hoş Geldiniz) --- */
+        /* --- MÜHÜR EKRANI (AÇILIŞ) --- */
         #entry-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: var(--bg-dark);
+            background-color: var(--bg-color);
             z-index: 5000;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: all 1s ease-in-out;
+            cursor: pointer;
         }
 
-        .seal-container { cursor: pointer; text-align: center; }
+        .seal-container { text-align: center; }
         .seal {
             width: 130px; height: 130px;
-            background: radial-gradient(circle, #d4af37, #8a6d1d);
+            background: radial-gradient(circle, #b38b4d, #8a6d1d);
             border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 25px rgba(179, 139, 77, 0.4);
             font-family: 'Playfair Display', serif;
-            color: white; font-size: 1rem; font-weight: bold;
+            color: white; font-size: 1.2rem; font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             border: 3px solid rgba(255,255,255,0.3);
         }
 
-        /* --- YAZILAR --- */
-        h1 { font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 10vw, 5rem); margin: 10px 0; color: var(--gold); }
-        h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); }
-        p { font-size: 1rem; max-width: 450px; line-height: 1.8; opacity: 0.9; }
+        /* --- GÖRSEL TEMALAR VE SÜSLEMELER --- */
+        .decor-img {
+            max-width: 100%;
+            pointer-events: none;
+            position: absolute;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        /* 1. Gelin & Damat Karikatürü */
+        .wedding-couple {
+            width: 150px;
+            top: 50px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* 2. Minimal Çiçek Buketi */
+        .floral-bouquet {
+            width: 100px;
+            bottom: 60px;
+        }
+
+        /* 3. Minimal Alyanslar */
+        .alyans-doodle {
+            width: 120px;
+            bottom: 40px;
+            right: 20px;
+            opacity: 0.5;
+        }
+
+        @keyframes float {
+            0%, 100% {transform: translateY(0);}
+            50% {transform: translateY(-10px);}
+        }
+
+        /* --- YAZILAR VE İÇERİK --- */
+        .content-wrap {
+            position: relative;
+            z-index: 2; /* Yazılar görsellerin üstünde kalsın */
+        }
+
+        h1 { font-family: 'Great Vibes', cursive; font-size: clamp(3.5rem, 12vw, 5.5rem); margin: 15px 0; color: var(--gold); text-shadow: 1px 1px 1px rgba(0,0,0,0.05); }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); margin-top: 0; }
+        p { font-size: 1.1rem; max-width: 480px; line-height: 1.8; opacity: 0.9; }
 
         /* --- BUTONLAR (Mobil Uyumlu) --- */
         .btn-group {
             display: flex;
             flex-direction: column; /* Mobilde alt alta */
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
         }
 
         .btn {
-            padding: 15px 25px;
+            padding: 16px 28px;
             border: 2px solid var(--gold);
-            background: transparent;
+            background: white;
             color: var(--gold);
             text-decoration: none;
             text-transform: uppercase;
             font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 2px;
-            transition: 0.3s;
-            border-radius: 8px;
+            transition: 0.3s ease;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(179, 139, 77, 0.1);
         }
 
-        .btn:hover { background: var(--gold); color: var(--bg-dark); }
+        .btn:hover {
+            background: var(--gold);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(179, 139, 77, 0.3);
+        }
 
-        /* --- YUKARI ÇIK --- */
+        /* --- YUKARI ÇIK BUTONU --- */
         #backToTop {
             position: fixed; bottom: 25px; right: 25px;
             width: 50px; height: 50px;
             background-color: var(--gold);
-            color: var(--bg-dark);
+            color: white;
             border-radius: 50%;
             display: none; justify-content: center; align-items: center;
             text-decoration: none; z-index: 9999;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 5px 15px rgba(179, 139, 77, 0.5);
             font-weight: bold;
         }
 
-        /* --- SÜSLEMELER (Çiçek & Böcek) --- */
-        .decor {
-            position: absolute;
-            width: 150px;
-            opacity: 0.4;
-            pointer-events: none;
-        }
-        .top-left { top: 10px; left: 10px; transform: rotate(-15deg); }
-        .bottom-right { bottom: 10px; right: 10px; transform: rotate(165deg); }
-
         #countdown {
-            margin-top: 20px;
-            font-size: 1.2rem;
+            margin: 20px 0;
+            font-size: 1.3rem;
             color: var(--gold);
             letter-spacing: 2px;
+            font-weight: 600;
         }
 
         /* Sayfa geçişleri için ok */
         .next-btn {
-            position: absolute; bottom: 20px;
+            position: absolute; bottom: 30px;
             cursor: pointer; color: var(--gold);
-            font-size: 0.7rem; letter-spacing: 2px;
+            font-size: 0.75rem; letter-spacing: 3px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
+
+        /* Hafif Belirme Animasyonu */
+        section .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 1s all ease-out;
+        }
+        section.active .reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
     </style>
 </head>
 <body>
@@ -148,42 +189,51 @@
 
     <div id="entry-overlay" onclick="closeOverlay()">
         <div class="seal-container">
-            <div class="seal">HOŞ<br>GELDİNİZ</div>
-            <p style="margin-top: 20px; color: var(--gold); letter-spacing: 3px; font-size: 0.8rem;">GİRİŞ İÇİN DOKUNUN</p>
+            <div class="seal">GİRİŞ</div>
+            <p style="margin-top: 25px; color: var(--gold); letter-spacing: 4px; font-size: 0.8rem; font-weight: bold;">HOŞ GELDİNİZ</p>
         </div>
     </div>
 
-    <section id="section1">
-        <img src="https://www.transparentpng.com/download/gold-leaf/gold-leaf-transparent-3.png" class="decor top-left">
-        <p style="text-transform: uppercase; letter-spacing: 5px; color: var(--gold); font-size: 0.8rem;">Sizleri Bekliyoruz</p>
-        <h1>Zeynep & Ozan</h1>
-        <p>Aşkın en saf haliyle buluştuğu bu geceyi bizimle paylaşır mısınız?</p>
-        <div class="next-btn" onclick="goTo('section2')">TARİH ▼</div>
+    <section id="section1" class="active">
+        <img src="https://cdn-icons-png.flaticon.com/512/3653/3653133.png" class="decor-img wedding-couple" alt="Gelin Damat Karikatürü">
+        <div class="content-wrap reveal">
+            <p style="text-transform: uppercase; letter-spacing: 6px; color: var(--gold); font-size: 0.8rem; margin-bottom: 5px;">Aşkın Yolculuğu</p>
+            <h1>Zeynep & Ozan</h1>
+            <p>Geleceğe doğru attığımız bu ilk adımda, sevgimizi sizinle taçlandırmak istiyoruz.</p>
+        </div>
+        <div class="next-btn" onclick="goTo('section2')">Detaylar ▼</div>
     </section>
 
     <section id="section2">
-        <h2>16 Mayıs 2026</h2>
-        <p>Cumartesi | 19:00</p>
-        <div id="countdown"></div>
-        <div class="next-btn" onclick="goTo('section3')">KONUM ▼</div>
+        <div class="content-wrap reveal">
+            <h2>16 Mayıs 2026</h2>
+            <p>Cumartesi | 19:00</p>
+            <div id="countdown">Hesaplanıyor...</div>
+        </div>
+        <div class="next-btn" onclick="goTo('section3')">Konum ▼</div>
     </section>
 
     <section id="section3">
-        <h2>Moda Düğün Salonu</h2>
-        <p>Kepez / Antalya</p>
-        <div class="btn-group">
-            <a href="https://maps.app.goo.gl/PVbDEC21Ks684diM6" target="_blank" class="btn">YOL TARİFİ AL</a>
+        <img src="https://cdn-icons-png.flaticon.com/512/3067/3067851.png" class="decor-img alyans-doodle" alt="Minimal Alyans Doodle">
+        <div class="content-wrap reveal">
+            <h2>Moda Düğün Salonu</h2>
+            <p>Kepez / Antalya</p>
+            <div class="btn-group">
+                <a href="https://maps.app.goo.gl/PVbDEC21Ks684diM6" target="_blank" class="btn">YOL TARİFİ AL</a>
+            </div>
         </div>
-        <div class="next-btn" onclick="goTo('section4')">ANI KÖŞESİ ▼</div>
+        <div class="next-btn" onclick="goTo('section4')">Anı Köşesi ▼</div>
     </section>
 
     <section id="section4">
-        <img src="https://www.transparentpng.com/download/gold-leaf/gold-leaf-transparent-3.png" class="decor bottom-right">
-        <h2>Anı Köşesi</h2>
-        <p>Bize bu geceden fotoğraflar gönderin...</p>
-        <div class="btn-group">
-            <a href="https://wa.me/905345943185?text=Zeynep merhaba, düğün fotoğraflarını gönderiyorum!" target="_blank" class="btn">Zeynep'e Fotoğraf Gönder</a>
-            <a href="https://wa.me/905373399904?text=Ozan selam, düğün fotoğraflarını gönderiyorum!" target="_blank" class="btn">Ozan'a Fotoğraf Gönder</a>
+        <img src="https://cdn-icons-png.flaticon.com/512/2930/2930472.png" class="decor-img floral-bouquet" alt="Minimal Buket Doodle">
+        <div class="content-wrap reveal">
+            <h2>Anı Köşesi</h2>
+            <p>En özel karelerinizi bizimle paylaşın, albümümüzü birlikte dolduralım.</p>
+            <div class="btn-group">
+                <a href="https://wa.me/905345943185?text=Zeynep%20merhaba,%20düğününüzden%20bu%20güzel%20kareleri%20göndermek%20istedim." target="_blank" class="btn">Zeynep'e Gönder</a>
+                <a href="https://wa.me/905373399904?text=Ozan%20selam,%20düğünden%20yakaladığım%20kareler..." target="_blank" class="btn">Ozan'a Gönder</a>
+            </div>
         </div>
     </section>
 
@@ -202,15 +252,26 @@
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
 
-        window.onscroll = function() {
-            const btn = document.getElementById("backToTop");
-            if (document.documentElement.scrollTop > 400) {
-                btn.style.display = "flex";
-            } else {
-                btn.style.display = "none";
-            }
-        };
+        // Sayfa Kaydırma Takibi (Görünürlük Animasyonları İçin)
+        const sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', checkSections);
 
+        function checkSections() {
+            const btn = document.getElementById("backToTop");
+            if (document.documentElement.scrollTop > 400) { btn.style.display = "flex"; } else { btn.style.display = "none"; }
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight * 0.75) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        }
+
+        // Geri Sayım
         const targetDate = new Date("May 16, 2026 19:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
