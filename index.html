@@ -8,9 +8,9 @@
     
     <style>
         :root {
-            --bg-color: #fcf9f2;
-            --gold: #b38b4d;
-            --text-color: #444;
+            --bg-color: #fcf9f2; /* Yumuşak Krem */
+            --gold: #b38b4d; /* Zarif Altın */
+            --text-color: #444; /* Füme */
         }
 
         body, html {
@@ -18,7 +18,7 @@
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            overflow: hidden; /* Mühür açılınca 'auto' olacak */
+            overflow: hidden; /* Mühür açılmadan 'auto' olacak */
             scroll-behavior: smooth;
         }
 
@@ -31,12 +31,12 @@
             align-items: center;
             text-align: center;
             position: relative;
-            padding: 20px;
+            padding: 40px 20px;
             box-sizing: border-box;
             border-bottom: 1px inset rgba(179, 139, 77, 0.1);
         }
 
-        /* --- MÜHÜR EKRANI --- */
+        /* --- MÜHÜR EKRANI (GİRİŞ) --- */
         #entry-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -46,45 +46,74 @@
             justify-content: center;
             align-items: center;
             transition: opacity 1s ease, transform 1s ease;
+            cursor: pointer;
         }
 
-        .seal-container { cursor: pointer; text-align: center; }
+        .seal-container { text-align: center; }
         .seal {
-            width: 120px; height: 120px;
+            width: 130px; height: 130px;
             background: radial-gradient(circle, #b38b4d, #8a6d1d);
             border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
             box-shadow: 0 10px 25px rgba(179, 139, 77, 0.4);
             font-family: 'Playfair Display', serif;
-            color: white; font-size: 1rem; font-weight: bold;
+            color: white; font-size: 1.2rem; font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 2px;
             border: 3px solid rgba(255,255,255,0.3);
         }
 
-        /* --- GÖRSELLER --- */
+        /* --- GÖRSEL TEMALAR VE SÜSLEMELER (Doodle Tarzı) --- */
         .decor-img {
-            max-width: 120px;
-            margin-bottom: 20px;
+            max-width: 100%;
             opacity: 0.9;
+            margin-bottom: 25px;
+            pointer-events: none;
         }
 
-        /* --- YAZILAR --- */
-        h1 { font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 12vw, 5rem); margin: 10px 0; color: var(--gold); }
-        h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); margin-bottom: 10px; }
-        p { font-size: 1.1rem; max-width: 450px; line-height: 1.6; margin: 10px auto; }
+        /* 1. Gelin & Damat Karikatürü */
+        .wedding-couple {
+            width: 150px;
+            animation: float 4s ease-in-out infinite;
+        }
 
-        /* --- BUTONLAR --- */
+        @keyframes float {
+            0%, 100% {transform: translateY(0);}
+            50% {transform: translateY(-10px);}
+        }
+
+        /* 2. Minimal Takvim Doodle */
+        .calendar-doodle {
+            width: 80px;
+        }
+
+        /* 3. Minimal Mekan Doodle */
+        .venue-doodle {
+            width: 90px;
+        }
+
+        /* 4. Minimal Fotoğraf Makinesi Doodle */
+        .camera-doodle {
+            width: 80px;
+        }
+
+        /* --- YAZILAR VE İÇERİK --- */
+        h1 { font-family: 'Great Vibes', cursive; font-size: clamp(3.5rem, 12vw, 5.5rem); margin: 15px 0; color: var(--gold); text-shadow: 1px 1px 1px rgba(0,0,0,0.05); }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); margin-top: 0; }
+        p { font-size: 1.1rem; max-width: 480px; line-height: 1.8; opacity: 0.9; margin: 10px auto; }
+
+        /* --- BUTONLAR (Mobil Uyumlu) --- */
         .btn-group {
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Mobilde alt alta */
             gap: 12px;
-            margin-top: 20px;
+            margin-top: 25px;
             width: 100%;
-            max-width: 280px;
+            max-width: 320px;
         }
 
         .btn {
-            padding: 14px 25px;
+            padding: 16px 28px;
             border: 2px solid var(--gold);
             background: white;
             color: var(--gold);
@@ -92,78 +121,103 @@
             text-transform: uppercase;
             font-size: 0.8rem;
             font-weight: 600;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            border-radius: 50px;
-        }
-
-        .btn:hover { background: var(--gold); color: white; }
-
-        /* --- NAVİGASYON --- */
-        #backToTop {
-            position: fixed; bottom: 20px; right: 20px;
-            width: 45px; height: 45px;
-            background-color: var(--gold);
-            color: white; border-radius: 50%;
-            display: none; justify-content: center; align-items: center;
-            text-decoration: none; z-index: 1000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .next-btn {
-            position: absolute; bottom: 25px;
-            cursor: pointer; color: var(--gold);
-            font-size: 0.7rem; font-weight: bold;
             letter-spacing: 2px;
+            transition: 0.3s ease;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(179, 139, 77, 0.1);
         }
 
-        #countdown { font-weight: bold; color: var(--gold); font-size: 1.2rem; margin-top: 10px; }
+        .btn:hover {
+            background: var(--gold);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(179, 139, 77, 0.3);
+        }
+
+        /* --- YUKARI ÇIK BUTONU --- */
+        #backToTop {
+            position: fixed; bottom: 25px; right: 25px;
+            width: 50px; height: 50px;
+            background-color: var(--gold);
+            color: white;
+            border-radius: 50%;
+            display: none; justify-content: center; align-items: center;
+            text-decoration: none; z-index: 9999;
+            box-shadow: 0 5px 15px rgba(179, 139, 77, 0.5);
+            font-weight: bold;
+        }
+
+        #countdown {
+            margin: 20px 0;
+            font-size: 1.3rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* Sayfa geçişleri için ok */
+        .next-btn {
+            position: absolute; bottom: 30px;
+            cursor: pointer; color: var(--gold);
+            font-size: 0.75rem; letter-spacing: 3px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
     </style>
 </head>
 <body>
 
-    <a href="javascript:void(0)" id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</a>
+    <a href="javascript:void(0)" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</a>
 
     <div id="entry-overlay" onclick="closeOverlay()">
         <div class="seal-container">
             <div class="seal">GİRİŞ</div>
-            <p style="margin-top: 20px; color: var(--gold); font-weight: bold; letter-spacing: 2px;">HOŞ GELDİNİZ</p>
+            <p style="margin-top: 25px; color: var(--gold); letter-spacing: 4px; font-size: 0.8rem; font-weight: bold;">HOŞ GELDİNİZ</p>
         </div>
     </div>
 
     <section id="section1">
-        <img src="https://cdn-icons-png.flaticon.com/512/3653/3653133.png" class="decor-img" alt="Gelin Damat">
-        <p style="text-transform: uppercase; letter-spacing: 4px; color: var(--gold); font-size: 0.8rem;">Düğün Davetiyesi</p>
-        <h1>Zeynep & Ozan</h1>
-        <p>Birlikteliğimizi resmileştireceğimiz bu özel günde sizleri de aramızda görmekten mutluluk duyarız.</p>
-        <div class="next-btn" onclick="goTo('section2')">TARİH ▼</div>
+        <img src="https://cdn-icons-png.flaticon.com/512/3653/3653133.png" class="decor-img wedding-couple" alt="Gelin Damat Karikatürü">
+        <div class="content-wrap">
+            <p style="text-transform: uppercase; letter-spacing: 6px; color: var(--gold); font-size: 0.8rem; margin-bottom: 5px;">Aşkın Yolculuğu</p>
+            <h1>Zeynep & Ozan</h1>
+            <p>Geleceğe doğru attığımız bu ilk adımda, sevgimizi sizinle taçlandırmak istiyoruz.</p>
+        </div>
+        <div class="next-btn" onclick="goTo('section2')">Detaylar ▼</div>
     </section>
 
     <section id="section2">
-        <img src="https://cdn-icons-png.flaticon.com/512/3168/3168014.png" class="decor-img" style="width: 80px;">
-        <h2>16 Mayıs 2026</h2>
-        <p>Cumartesi | Saat: 19:00</p>
-        <div id="countdown"></div>
-        <div class="next-btn" onclick="goTo('section3')">KONUM ▼</div>
+        <img src="https://cdn-icons-png.flaticon.com/512/3168/3168014.png" class="decor-img calendar-doodle" alt="Takvim Doodle">
+        <div class="content-wrap">
+            <h2>16 Mayıs 2026</h2>
+            <p>Cumartesi | 19:00</p>
+            <div id="countdown">Hesaplanıyor...</div>
+        </div>
+        <div class="next-btn" onclick="goTo('section3')">Konum ▼</div>
     </section>
 
     <section id="section3">
-        <img src="https://cdn-icons-png.flaticon.com/512/3067/3067851.png" class="decor-img" style="width: 90px;">
-        <h2>Moda Düğün Salonu</h2>
-        <p>Kepez / Antalya</p>
-        <div class="btn-group">
-            <a href="https://maps.app.goo.gl/PVbDEC21Ks684diM6" target="_blank" class="btn">YOL TARİFİ AL</a>
+        <img src="https://cdn-icons-png.flaticon.com/512/3067/3067851.png" class="decor-img venue-doodle" alt="Mekan Doodle">
+        <div class="content-wrap">
+            <h2>Moda Düğün Salonu</h2>
+            <p>Kepez / Antalya</p>
+            <div class="btn-group">
+                <a href="https://maps.app.goo.gl/PVbDEC21Ks684diM6" target="_blank" class="btn">YOL TARİFİ AL</a>
+            </div>
         </div>
-        <div class="next-btn" onclick="goTo('section4')">ANI KÖŞESİ ▼</div>
+        <div class="next-btn" onclick="goTo('section4')">Anı Köşesi ▼</div>
     </section>
 
     <section id="section4">
-        <img src="https://cdn-icons-png.flaticon.com/512/2930/2930472.png" class="decor-img" style="width: 80px;">
-        <h2>Anı Köşesi</h2>
-        <p>En özel karelerinizi bizimle paylaşın.</p>
-        <div class="btn-group">
-            <a href="https://wa.me/905345943185?text=Zeynep merhaba, düğün fotoğraflarını gönderiyorum!" target="_blank" class="btn">Zeynep'e Gönder</a>
-            <a href="https://wa.me/905373399904?text=Ozan selam, düğün fotoğraflarını gönderiyorum!" target="_blank" class="btn">Ozan'a Gönder</a>
+        <img src="https://cdn-icons-png.flaticon.com/512/2930/2930472.png" class="decor-img camera-doodle" alt="Kamera Doodle">
+        <div class="content-wrap">
+            <h2>Anı Köşesi</h2>
+            <p>En özel karelerinizi bizimle paylaşın, albümümüzü birlikte dolduralım.</p>
+            <div class="btn-group">
+                <a href="https://wa.me/905345943185?text=Zeynep merhaba, düğününüzden bu güzel kareleri göndermek istedim." target="_blank" class="btn">Zeynep'e Gönder</a>
+                <a href="https://wa.me/905373399904?text=Ozan selam, düğünden yakaladığım kareler..." target="_blank" class="btn">Ozan'a Gönder</a>
+            </div>
         </div>
     </section>
 
@@ -183,23 +237,20 @@
         }
 
         window.onscroll = function() {
-            const btt = document.getElementById("backToTop");
-            if (document.documentElement.scrollTop > 300) {
-                btt.style.display = "flex";
-            } else {
-                btt.style.display = "none";
-            }
+            const btn = document.getElementById("backToTop");
+            if (document.documentElement.scrollTop > 400) { btn.style.display = "flex"; } else { btn.style.display = "none"; }
         };
 
-        const weddingDate = new Date("May 16, 2026 19:00:00").getTime();
-        setInterval(function() {
+        // Geri Sayım
+        const targetDate = new Date("May 16, 2026 19:00:00").getTime();
+        setInterval(() => {
             const now = new Date().getTime();
-            const dist = weddingDate - now;
-            const d = Math.floor(dist / (1000 * 60 * 60 * 24));
-            const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((dist % (1000 * 60)) / 1000);
-            document.getElementById("countdown").innerHTML = d + "g " + h + "s " + m + "d " + s + "s";
+            const diff = targetDate - now;
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = `${d}g ${h}s ${m}d ${s}s`;
         }, 1000);
     </script>
 </body>
