@@ -63,9 +63,9 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* --- GÖRSEL STİLLERİ --- */
+        /* --- GÖRSEL STİLLERİ (PNG Formatına Uygun) --- */
         .page-image {
-            width: clamp(100px, 15vw, 130px); /* Sayfalardaki görsellerin boyutu */
+            width: clamp(100px, 15vw, 130px);
             height: auto;
             margin-bottom: 20px;
             border: none;
@@ -161,16 +161,18 @@
 
     <section id="section3">
         <div class="nav-btn top-nav" onclick="goTo('section2')">▲ TARİH BİLGİSİ</div>
+        <img src="konum.png" alt="Konum" class="page-image">
         <h2>Moda Düğün Salonu</h2>
         <p>Kepez / Antalya</p>
         <div class="btn-group">
-            <a href="https://maps.app.goo.gl/PVbDEC21Ks684diM6" target="_blank" class="btn">YOL TARİFİ AL</a>
+            <a href="https://maps.app.goo.gl/YourActualMapLink" target="_blank" class="btn">YOL TARİFİ AL</a>
         </div>
         <div class="nav-btn bottom-nav" onclick="goTo('section4')">ANI KÖŞESİ ▼</div>
     </section>
 
     <section id="section4">
         <div class="nav-btn top-nav" onclick="goTo('section3')">▲ KONUM BİLGİSİ</div>
+        <img src="fotograf.png" alt="Fotoğraf" class="page-image">
         <h2>Anı Köşesi</h2>
         <p>En özel karelerinizi bizimle paylaşın.</p>
         <div class="btn-group">
