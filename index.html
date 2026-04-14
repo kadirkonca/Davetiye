@@ -86,28 +86,21 @@
 
         .btn:hover { background: var(--gold); color: white; }
 
-        /* --- NAVİGASYON BUTONLARI --- */
-        .top-nav-btn {
+        /* --- NAVİGASYON YAZILARI --- */
+        .nav-btn {
             position: absolute;
-            top: 30px;
             color: var(--gold);
             text-decoration: none;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            font-weight: bold;
+            font-size: 0.75rem;
+            letter-spacing: 2.5px;
+            font-weight: 600;
             cursor: pointer;
+            text-transform: uppercase;
+            padding: 10px;
         }
 
-        .bottom-nav-btn {
-            position: absolute;
-            bottom: 30px;
-            color: var(--gold);
-            text-decoration: none;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+        .top-nav { top: 30px; }
+        .bottom-nav { bottom: 30px; }
 
         #fixedBackToTop {
             position: fixed; bottom: 20px; right: 20px;
@@ -137,36 +130,36 @@
         <p style="letter-spacing: 5px; color: var(--gold); text-transform: uppercase; font-size: 0.8rem;">Davetlisiniz</p>
         <h1>Zeynep & Ozan</h1>
         <p>Birlikte yeni bir hayata adım atarken sizleri de aramızda görmekten mutluluk duyarız.</p>
-        <div class="bottom-nav-btn" onclick="goTo('section2')">DETAYLAR ▼</div>
+        <div class="nav-btn bottom-nav" onclick="goTo('section2')">TARİH BİLGİSİ ▼</div>
     </section>
 
     <section id="section2">
-        <div class="top-nav-btn" onclick="goTo('section1')">▲ ÜST SAYFA</div>
+        <div class="nav-btn top-nav" onclick="goTo('section1')">▲ ANA SAYFA</div>
         <h2>16 Mayıs 2026</h2>
         <p>Cumartesi | 19:00</p>
         <div id="countdown"></div>
-        <div class="bottom-nav-btn" onclick="goTo('section3')">KONUM ▼</div>
+        <div class="nav-btn bottom-nav" onclick="goTo('section3')">KONUM BİLGİSİ ▼</div>
     </section>
 
     <section id="section3">
-        <div class="top-nav-btn" onclick="goTo('section2')">▲ ÜST SAYFA</div>
+        <div class="nav-btn top-nav" onclick="goTo('section2')">▲ TARİH BİLGİSİ</div>
         <h2>Moda Düğün Salonu</h2>
         <p>Kepez / Antalya</p>
         <div class="btn-group">
             <a href="https://maps.app.goo.gl/PVbDEC21Ks684diM6" target="_blank" class="btn">YOL TARİFİ AL</a>
         </div>
-        <div class="bottom-nav-btn" onclick="goTo('section4')">ANI KÖŞESİ ▼</div>
+        <div class="nav-btn bottom-nav" onclick="goTo('section4')">ANI KÖŞESİ ▼</div>
     </section>
 
     <section id="section4">
-        <div class="top-nav-btn" onclick="goTo('section3')">▲ ÜST SAYFA</div>
+        <div class="nav-btn top-nav" onclick="goTo('section3')">▲ KONUM BİLGİSİ</div>
         <h2>Anı Köşesi</h2>
         <p>En özel karelerinizi bizimle paylaşın.</p>
         <div class="btn-group">
             <a href="https://wa.me/905345943185?text=Zeynep merhaba, düğün fotoğraflarını gönderiyorum!" target="_blank" class="btn">Zeynep'e Gönder</a>
             <a href="https://wa.me/905373399904?text=Ozan selam, düğün fotoğraflarını gönderiyorum!" target="_blank" class="btn">Ozan'a Gönder</a>
         </div>
-        <div class="bottom-nav-btn" style="bottom: 80px;" onclick="goTo('section1')">BAŞA DÖN ▲</div>
+        <div class="nav-btn bottom-nav" onclick="goTo('section1')">EN BAŞA DÖN ▲</div>
     </section>
 
     <script>
