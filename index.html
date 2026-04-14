@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davet | Düğünümüz</title>
+    
+    <!-- Open Graph Meta Tags for WhatsApp Preview -->
+    <meta property="og:title" content="Düğün Davetiyesi">
+    <meta property="og:description" content="Sizi mutluluğumuza şahit olmaya davet ediyoruz">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5f5dc 0%, #faf0e6 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .invitation-container {
+            background: white;
+            max-width: 500px;
+            width: 100%;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .invitation-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #d4af37, #f4e4c1, #d4af37);
+        }
+        
+        .decorative-element {
+            font-size: 2rem;
+            color: #d4af37;
+            margin: 20px 0;
+        }
+        
+        .couple-names {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin: 30px 0;
+            line-height: 1.2;
+        }
+        
+        .and-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #d4af37;
+            margin: 20px 0;
+            font-weight: 400;
+        }
+        
+        .invitation-text {
+            font-size: 1rem;
+            color: #666;
+            margin: 20px 0;
+            font-weight: 300;
+        }
+        
+        .date-time {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #333;
+            margin: 25px 0;
+            font-weight: 500;
+        }
+        
+        .venue {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 20px 0;
+            font-weight: 400;
+        }
+        
+        .buttons-container {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37, #f4e4c1);
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+        }
+        
+        .btn-secondary:hover {
+            background: #d4af37;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .footer-text {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 30px;
+            font-style: italic;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .invitation-container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .couple-names {
+                font-size: 2rem;
+            }
+            
+            .and-text {
+                font-size: 1.3rem;
+            }
+            
+            .date-time {
+                font-size: 1.1rem;
+            }
+            
+            .venue {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Loading animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .invitation-container {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation-container">
+        <div class="decorative-element">✦</div>
+        
+        <h1 class="couple-names">
+            Zeynep Kırşan<br>
+            <span class="and-text">&</span><br>
+            Ozan Balcı
+        </h1>
+        
+        <p class="invitation-text">
+            Sizi mutluluğumuza ortak olmaya ve hayatımızın en özel gününde bizi yalnız bırakmamaya davet ediyoruz.
+        </p>
+        
+        <div class="decorative-element">✦</div>
+        
+        <div class="date-time">
+            📅 25 Haziran 2024<br>
+            🕕 Saat 18:00
+        </div>
+        
+        <div class="venue">
+            📍 Moda Düğün Salonu<br>
+            Kepez, Antalya
+        </div>
+        
+        <div class="buttons-container">
+            <a href="https://maps.app.goo.gl/qVvtQc41rhBhZQkh9" 
+               target="_blank" 
+               class="btn btn-primary">
+                🗺️ Konuma Git
+            </a>
+            
+            <a href="https://wa.me/905551234567?text=Merhaba!%20Düğün%20davetinize%20katılmak%20istiyorum.%20Teşekkür%20ederim." 
+               target="_blank" 
+               class="btn btn-secondary">
+                💬 Lütfen Cevap Veriniz
+            </a>
+        </div>
+        
+        <p class="footer-text">
+            "İki kalbin birleştiği yerde mutluluk başlar."
+        </p>
+    </div>
+</body>
+</html>
