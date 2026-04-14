@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zeynep & Ozan Düğün Davetiyesi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --bg-color: #fdfaf6;
             --gold: #c5a059;
+            --gold-light: #e2c999;
             --text-color: #4a4a4a;
         }
 
         body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
+            margin: 0; padding: 0; height: 100%;
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             overflow: hidden; 
             scroll-behavior: smooth;
+        }
+
+        /* Arka plan dokusu efekti */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 1;
         }
 
         section {
@@ -35,105 +45,110 @@
             position: relative;
             padding: 20px;
             box-sizing: border-box;
+            z-index: 2;
         }
 
         /* --- MÜHÜR EKRANI --- */
         #entry-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-color: var(--bg-color);
-            z-index: 2000;
+            z-index: 3000;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+            transition: transform 1.5s cubic-bezier(1, 0, 0, 1);
         }
 
-        .seal-container { cursor: pointer; text-align: center; }
+        .seal-container { cursor: pointer; transform: scale(1.2); }
         .seal {
-            width: 110px;
-            height: 110px;
+            width: 120px; height: 120px;
             background: radial-gradient(circle, #d4af37, #aa8522);
             border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 15px 35px rgba(197, 160, 89, 0.4);
             font-family: 'Playfair Display', serif;
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
+            color: white; font-size: 2.2rem;
+            position: relative;
+            border: 2px solid rgba(255,255,255,0.2);
         }
 
-        /* --- GENEL TASARIM --- */
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 5px; color: var(--gold); }
-        h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 0; color: var(--gold); }
-        p { font-size: 1.1rem; max-width: 500px; line-height: 1.6; }
+        /* --- YAZI STİLLERİ --- */
+        h1 { 
+            font-family: 'Great Vibes', cursive; 
+            font-size: 4rem; 
+            margin: 10px 0; 
+            color: var(--gold);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); letter-spacing: 2px; }
+        p { font-size: 1.1rem; max-width: 500px; line-height: 1.8; font-weight: 300; }
 
+        /* --- BUTONLAR --- */
         .btn {
             margin: 10px;
-            padding: 12px 30px;
+            padding: 15px 35px;
             border: 1px solid var(--gold);
-            background: transparent;
+            background: white;
             color: var(--gold);
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 0.9rem;
-            font-weight: bold;
-            transition: 0.3s;
-            border-radius: 5px;
-            display: inline-block;
-        }
-
-        .btn:hover { background: var(--gold); color: white; }
-
-        /* --- NAVİGASYON OKU --- */
-        .next-btn {
-            position: absolute;
-            bottom: 30px;
-            cursor: pointer;
             font-size: 0.8rem;
+            font-weight: 600;
             letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold);
-            animation: bounce 2s infinite;
+            transition: 0.4s;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.1);
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-        }
-
-        /* --- YUKARI ÇIK BUTONU --- */
-        #backToTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 45px;
-            height: 45px;
-            background-color: var(--gold);
+        .btn:hover {
+            background: var(--gold);
             color: white;
-            border-radius: 50%;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            font-size: 1.2rem;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.3);
         }
 
-        /* --- WHATSAPP SEÇENEKLERİ --- */
-        .whatsapp-options {
-            margin-top: 20px;
+        /* --- SÜSLEMELER --- */
+        .corner-flower {
+            position: absolute;
+            width: 200px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .top-right { top: 0; right: 0; transform: rotate(90deg); }
+        .bottom-left { bottom: 0; left: 0; transform: rotate(-90deg); }
+
+        /* --- GERİ SAYIM KUTUSU --- */
+        #countdown {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px inset var(--bg-color);
+            margin: 20px 0;
+            font-weight: 600;
+            color: var(--gold);
         }
 
-        #section2, #section4 { background-color: #fdfaf6; }
-        #section3, #section5 { background-color: #faf7f2; }
+        #backToTop {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 50px; height: 50px;
+            background-color: var(--gold);
+            color: white; border-radius: 50%;
+            display: none; justify-content: center; align-items: center;
+            text-decoration: none; z-index: 1000;
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.4);
+        }
 
+        .next-btn {
+            position: absolute; bottom: 30px;
+            cursor: pointer; color: var(--gold);
+            font-weight: 600; font-size: 0.7rem; letter-spacing: 3px;
+        }
+
+        /* Bölüm renk geçişleri */
+        section:nth-child(even) { background-color: #fdfaf6; }
+        section:nth-child(odd) { background-color: #faf7f2; }
     </style>
 </head>
 <body>
@@ -143,43 +158,48 @@
     <div id="entry-overlay" onclick="goToSection('section2')">
         <div class="seal-container">
             <div class="seal">Z&O</div>
-            <p style="margin-top: 25px; color: var(--gold); letter-spacing: 3px; font-weight: 600;">DAVETİYEYİ AÇ</p>
+            <p style="margin-top: 30px; color: var(--gold); letter-spacing: 4px; font-weight: 600; font-size: 0.8rem;">DOKUN VE AÇ</p>
         </div>
     </div>
 
     <section id="section2">
+        <img src="https://www.transparentpng.com/download/floral/flower-transparent-background-3.png" class="corner-flower top-right">
+        <p style="letter-spacing: 5px; text-transform: uppercase; font-size: 0.7rem; color: var(--gold);">Davetlisiniz</p>
         <h1>Zeynep & Ozan</h1>
-        <p>Hayatımızın en güzel yolculuğuna başlarken sizleri de yanımızda görmekten mutluluk duyarız.</p>
-        <div class="next-btn" onclick="goToSection('section3')">Tarih Bilgisi ▼</div>
+        <p>Geleceğe doğru attığımız bu ilk adımda, sevgimizi sizinle taçlandırmak istiyoruz.</p>
+        <div class="next-btn" onclick="goToSection('section3')">DETAYLAR ▼</div>
     </section>
 
     <section id="section3">
         <h2>16 Mayıs 2026</h2>
         <p>Cumartesi | Saat: 19:00</p>
-        <div id="countdown" style="color: var(--gold); margin: 20px 0; font-weight: bold; font-size: 1.2rem;"></div>
-        <div class="next-btn" onclick="goToSection('section4')">Konum Bilgisi ▼</div>
+        <div id="countdown">Yükleniyor...</div>
+        <div class="next-btn" onclick="goToSection('section4')">KONUM ▼</div>
     </section>
 
     <section id="section4">
+        <img src="https://www.transparentpng.com/download/floral/flower-transparent-background-3.png" class="corner-flower bottom-left">
         <h2>Moda Düğün Salonu</h2>
         <p>Kepez / Antalya</p>
-        <a href="https://maps.app.goo.gl/PVbDEC21Ks684diM6" target="_blank" class="btn">Yol Tarifi Al</a>
-        <div class="next-btn" onclick="goToSection('section5')">Anı Köşesi ▼</div>
+        <a href="https://maps.app.goo.gl/PVbDEC21Ks684diM6" target="_blank" class="btn">YOL TARİFİ AL</a>
+        <div class="next-btn" onclick="goToSection('section5')">ANI KÖŞESİ ▼</div>
     </section>
 
     <section id="section5">
         <h2>Anı Köşesi</h2>
-        <p>Bu mutlu günü bizimle fotoğraflayan dostlarımızdan kareler bekliyoruz.</p>
-        <div class="whatsapp-options">
-            <a href="https://wa.me/905345943185?text=Zeynep%20merhaba!%20Düğününüzden%20bu%20kareleri%20seninle%20paylaşmak%20istedim." target="_blank" class="btn">Zeynep'e Gönder</a>
-            <a href="https://wa.me/905373399904?text=Ozan%20selam!%20Düğünden%20yakaladığım%20bazı%20kareleri%20sana%20gönderiyorum." target="_blank" class="btn">Ozan'a Gönder</a>
+        <p>En özel karelerinizi bizimle paylaşın...</p>
+        <div style="margin-top: 20px;">
+            <a href="https://wa.me/905345943185?text=Zeynep%20merhaba!%20Düğününüzden%20kareler..." target="_blank" class="btn">Zeynep'e Gönder</a>
+            <a href="https://wa.me/905373399904?text=Ozan%20selam!%20Düğünden%20kareler..." target="_blank" class="btn">Ozan'a Gönder</a>
         </div>
     </section>
 
     <script>
         function goToSection(sectionId) {
             if (sectionId === 'section2') {
-                document.getElementById('entry-overlay').style.transform = 'translateY(-100%)';
+                document.getElementById('entry-overlay').style.transform = 'scale(2) opacity(0)';
+                // Modern bir açılış efekti için scale ve fade kullandık
+                document.getElementById('entry-overlay').style.opacity = '0';
                 setTimeout(() => {
                     document.getElementById('entry-overlay').style.display = 'none';
                     document.body.style.overflowY = 'auto';
@@ -188,7 +208,6 @@
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Kaydırma İzleme (Yukarı Çık Butonu İçin)
         window.onscroll = function() {
             var btn = document.getElementById("backToTop");
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -198,7 +217,6 @@
             }
         };
 
-        // Geri Sayım
         const weddingDate = new Date("May 16, 2026 19:00:00").getTime();
         setInterval(function() {
             const now = new Date().getTime();
@@ -206,7 +224,8 @@
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("countdown").innerHTML = days + " Gün " + hours + " Saat " + mins + " Dakika Kaldı";
+            const secs = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = days + " GÜN " + hours + " SAAT " + mins + " DK " + secs + " SN";
         }, 1000);
     </script>
 </body>
