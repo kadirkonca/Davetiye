@@ -8,10 +8,6 @@
     <meta property="og:title" content="Zeynep & Ozan Düğün Davetiyesi" />
     <meta property="og:description" content="16 Mayıs 2026 | Moda Düğün Salonu, Kepez/Antalya" />
     <meta property="og:image" content="https://zeynepozanevleniyor.netlify.app/yuzukler.png" /> 
-    <meta property="og:image:secure_url" content="https://zeynepozanevleniyor.netlify.app/yuzukler.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="600" />
-    <meta property="og:image:height" content="600" />
     <meta property="og:url" content="https://zeynepozanevleniyor.netlify.app/" />
     <meta property="og:type" content="website" />
 
@@ -19,7 +15,7 @@
     
     <style>
         :root {
-            --bg-color: #fcf9f2; /* Davetiyenin krem zemini */
+            --bg-color: #fcf9f2;
             --gold: #b38b4d;
             --text-color: #444;
         }
@@ -67,14 +63,13 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* --- FOTOĞRAF STİLİ (Transparan PNG İçin Güncellendi) --- */
-        .ring-image {
-            width: clamp(100px, 20vw, 150px); /* Mobilde 100px, PC'de 150px'e kadar büyür */
+        /* --- GÖRSEL STİLLERİ --- */
+        .page-image {
+            width: clamp(100px, 15vw, 130px); /* Sayfalardaki görsellerin boyutu */
             height: auto;
-            margin-bottom: 30px; /* Fotoğraf ile yazı arasındaki boşluk */
-            border: none; /* Çerçeveyi kaldırdık */
-            border-radius: 0; /* Yuvarlaklığı kaldırdık */
-            box-shadow: none; /* Gölgeyi kaldırdık */
+            margin-bottom: 20px;
+            border: none;
+            box-shadow: none;
             display: block;
         }
 
@@ -148,8 +143,7 @@
     </div>
 
     <section id="section1">
-        <img src="yuzukler.png" alt="Alyans Yüzükler" class="ring-image">
-        
+        <img src="yuzukler.png" alt="Alyans Yüzükler" class="page-image">
         <p style="letter-spacing: 5px; color: var(--gold); text-transform: uppercase; font-size: 0.8rem;">Davetlisiniz</p>
         <h1>Zeynep & Ozan</h1>
         <p>Birlikte yeni bir hayata adım atarken sizleri de aramızda görmekten mutluluk duyarız.</p>
@@ -158,6 +152,7 @@
 
     <section id="section2">
         <div class="nav-btn top-nav" onclick="goTo('section1')">▲ ANA SAYFA</div>
+        <img src="takvim.png" alt="Takvim" class="page-image">
         <h2>16 Mayıs 2026</h2>
         <p>Cumartesi | 19:00</p>
         <div id="countdown"></div>
