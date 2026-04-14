@@ -3,245 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Davet | Düğünümüz</title>
-    
-    <!-- Open Graph Meta Tags for WhatsApp Preview -->
-    <meta property="og:title" content="Düğün Davetiyesi">
-    <meta property="og:description" content="Sizi mutluluğumuza şahit olmaya davet ediyoruz">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
-    <meta property="og:url" content="">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Zeynep & Ozan Düğün Davetiyesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <style>
-        * {
+        :root {
+            --bg-color: #fdfaf6;
+            --gold: #c5a059;
+            --text-color: #4a4a4a;
+        }
+
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
+            height: 100%;
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #f5f5dc 0%, #faf0e6 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow: hidden; /* Mühür açılmadan kaydırmayı engelle */
+            scroll-behavior: smooth;
         }
-        
-        .invitation-container {
-            background: white;
-            max-width: 500px;
-            width: 100%;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .invitation-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #d4af37, #f4e4c1, #d4af37);
-        }
-        
-        .decorative-element {
-            font-size: 2rem;
-            color: #d4af37;
-            margin: 20px 0;
-        }
-        
-        .couple-names {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #333;
-            margin: 30px 0;
-            line-height: 1.2;
-        }
-        
-        .and-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: #d4af37;
-            margin: 20px 0;
-            font-weight: 400;
-        }
-        
-        .invitation-text {
-            font-size: 1rem;
-            color: #666;
-            margin: 20px 0;
-            font-weight: 300;
-        }
-        
-        .date-time {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: #333;
-            margin: 25px 0;
-            font-weight: 500;
-        }
-        
-        .venue {
-            font-size: 1.1rem;
-            color: #555;
-            margin: 20px 0;
-            font-weight: 400;
-        }
-        
-        .buttons-container {
-            margin-top: 40px;
+
+        section {
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
         }
-        
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 500;
+
+        /* --- MÜHÜR EKRANI --- */
+        #entry-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 1s ease-in-out;
+        }
+
+        .seal-container {
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-family: 'Montserrat', sans-serif;
+            text-align: center;
         }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #d4af37, #f4e4c1);
+
+        .seal {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #d4af37, #aa8522);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .seal:hover { transform: scale(1.05); }
+
+        .seal span {
             color: white;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: bold;
         }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-        }
-        
-        .btn-secondary {
-            background: white;
-            color: #d4af37;
-            border: 2px solid #d4af37;
-        }
-        
-        .btn-secondary:hover {
-            background: #d4af37;
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .footer-text {
+
+        .instruction {
+            margin-top: 20px;
             font-size: 0.9rem;
-            color: #999;
-            margin-top: 30px;
-            font-style: italic;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
         }
-        
-        /* Responsive Design */
-        @media (max-width: 480px) {
-            .invitation-container {
-                padding: 30px 20px;
-                margin: 10px;
-            }
-            
-            .couple-names {
-                font-size: 2rem;
-            }
-            
-            .and-text {
-                font-size: 1.3rem;
-            }
-            
-            .date-time {
-                font-size: 1.1rem;
-            }
-            
-            .venue {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                padding: 12px 25px;
-                font-size: 0.9rem;
-            }
+
+        /* --- İÇERİK BÖLÜMLERİ --- */
+        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 10px; color: var(--gold); }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2rem; }
+        p { font-size: 1.1rem; max-width: 600px; line-height: 1.6; }
+
+        .btn {
+            margin-top: 25px;
+            padding: 12px 30px;
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            cursor: pointer;
         }
-        
-        /* Loading animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .btn:hover {
+            background: var(--gold);
+            color: white;
         }
-        
-        .invitation-container {
-            animation: fadeIn 0.8s ease-out;
-        }
+
+        /* --- ANİMASYONLAR --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        #ani-kosesi { background-color: #f7f2eb; }
     </style>
 </head>
 <body>
-    <div class="invitation-container">
-        <div class="decorative-element">✦</div>
-        
-        <h1 class="couple-names">
-            Zeynep Kırşan<br>
-            <span class="and-text">&</span><br>
-            Ozan Balcı
-        </h1>
-        
-        <p class="invitation-text">
-            Sizi mutluluğumuza ortak olmaya ve hayatımızın en özel gününde bizi yalnız bırakmamaya davet ediyoruz.
-        </p>
-        
-        <div class="decorative-element">✦</div>
-        
-        <div class="date-time">
-            📅 25 Haziran 2024<br>
-            🕕 Saat 18:00
+
+    <div id="entry-overlay">
+        <div class="seal-container" onclick="openInvitation()">
+            <div class="seal animate__animated animate__pulse animate__infinite">
+                <span>Z&O</span>
+            </div>
+            <div class="instruction">Mührü Aç</div>
         </div>
-        
-        <div class="venue">
-            📍 Moda Düğün Salonu<br>
-            Kepez, Antalya
-        </div>
-        
-        <div class="buttons-container">
-            <a href="https://maps.app.goo.gl/qVvtQc41rhBhZQkh9" 
-               target="_blank" 
-               class="btn btn-primary">
-                🗺️ Konuma Git
-            </a>
-            
-            <a href="https://wa.me/905551234567?text=Merhaba!%20Düğün%20davetinize%20katılmak%20istiyorum.%20Teşekkür%20ederim." 
-               target="_blank" 
-               class="btn btn-secondary">
-                💬 Lütfen Cevap Veriniz
-            </a>
-        </div>
-        
-        <p class="footer-text">
-            "İki kalbin birleştiği yerde mutluluk başlar."
-        </p>
     </div>
+
+    <section id="isimler">
+        <h1 class="animate__animated animate__fadeIn">Zeynep Kırşan</h1>
+        <h2 class="animate__animated animate__fadeIn">&</h2>
+        <h1 class="animate__animated animate__fadeIn">Ozan Balcı</h1>
+        <p>Sonsuz bir aşkın ilk adımında sizleri de aramızda görmekten mutluluk duyarız.</p>
+    </section>
+
+    <section id="tarih" class="reveal">
+        <h2>16 Mayıs 2026</h2>
+        <p>Cumartesi | Saat: 19:00</p>
+        <div id="countdown" style="font-weight: bold; color: var(--gold); margin-top: 10px;"></div>
+    </section>
+
+    <section id="konum" class="reveal">
+        <h2>Düğün Mekanı</h2>
+        <p>Aşk Bahçesi Kır Düğün Salonu <br> İstanbul / Türkiye</p>
+        <a href="https://maps.app.goo.gl/Jy4RtnD8D1FbpRGy6" target="_blank" class="btn">Haritayı Aç</a>
+    </section>
+
+    <section id="ani-kosesi" class="reveal">
+        <h2>Anı Köşesi</h2>
+        <p>Bizimle paylaştığınız fotoğrafları buradan yükleyerek albümümüze katkıda bulunabilirsiniz.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeNjlrJsnOLmzoxIHP8bX0Q22qdx2mt1QYeTjWn48ykG4dbFg/viewform?usp=dialog" target="_blank" class="btn">Fotoğraf Yükle</a>
+    </section>
+
+    <script>
+        // Mührü açma fonksiyonu
+        function openInvitation() {
+            document.getElementById('entry-overlay').style.transform = 'translateY(-100%)';
+            document.body.style.overflow = 'auto'; // Kaydırmayı aç
+            
+            // İlk bölüm animasyonunu tetikle
+            setTimeout(() => {
+                revealElements();
+            }, 500);
+        }
+
+        // Kaydırma sırasında elementlerin belirmesi
+        function revealElements() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", revealElements);
+
+        // Geri Sayım Sayacı
+        const weddingDate = new Date("May 16, 2026 19:00:00").getTime();
+        const countdownTimer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("countdown").innerHTML = days + " Gün " + hours + " Saat " + mins + " Dakika Kaldı";
+
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("countdown").innerHTML = "Bugün Büyük Gün!";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
