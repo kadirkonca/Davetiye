@@ -7,19 +7,19 @@
     
     <meta property="og:title" content="Zeynep & Ozan Düğün Davetiyesi" />
     <meta property="og:description" content="16 Mayıs 2026 | Moda Düğün Salonu, Kepez/Antalya" />
-    <meta property="og:image" content="https://siten.netlify.app/yuzukler.png" /> 
-    <meta property="og:image:secure_url" content="https://siten.netlify.app/yuzukler.png" />
-    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image" content="https://zeynepozanevleniyor.netlify.app/yuzukler.png" /> 
+    <meta property="og:image:secure_url" content="https://zeynepozanevleniyor.netlify.app/yuzukler.png" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="600" />
-    <meta property="og:url" content="https://siten.netlify.app/" />
+    <meta property="og:url" content="https://zeynepozanevleniyor.netlify.app/" />
     <meta property="og:type" content="website" />
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #fcf9f2;
+            --bg-color: #fcf9f2; /* Davetiyenin krem zemini */
             --gold: #b38b4d;
             --text-color: #444;
         }
@@ -67,13 +67,15 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* --- YAZILAR VE FOTOĞRAF --- */
+        /* --- FOTOĞRAF STİLİ (Transparan PNG İçin Güncellendi) --- */
         .ring-image {
-            width: 150px; /* Fotoğrafın genişliği */
+            width: clamp(100px, 20vw, 150px); /* Mobilde 100px, PC'de 150px'e kadar büyür */
             height: auto;
-            margin-bottom: 20px; /* Fotoğraf ile isimler arasındaki boşluk */
-            border-radius: 50%; /* Yuvarlak fotoğraf için */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Hafif gölge */
+            margin-bottom: 30px; /* Fotoğraf ile yazı arasındaki boşluk */
+            border: none; /* Çerçeveyi kaldırdık */
+            border-radius: 0; /* Yuvarlaklığı kaldırdık */
+            box-shadow: none; /* Gölgeyi kaldırdık */
+            display: block;
         }
 
         h1 { font-family: 'Great Vibes', cursive; font-size: clamp(3.5rem, 12vw, 5.5rem); color: var(--gold); margin: 0; }
