@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zeynep & Ozan Düğün Davetiyesi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -37,7 +37,7 @@
             box-sizing: border-box;
         }
 
-        /* --- MÜHÜR EKRANI (OVERLAY) --- */
+        /* --- MÜHÜR EKRANI --- */
         #entry-overlay {
             position: fixed;
             top: 0;
@@ -68,15 +68,32 @@
             font-weight: bold;
         }
 
-        /* --- İÇERİK --- */
+        /* --- GENEL TASARIM --- */
         h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 5px; color: var(--gold); }
         h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 0; color: var(--gold); }
-        p { font-size: 1.1rem; max-width: 500px; line-height: 1.6; padding: 0 10px; }
+        p { font-size: 1.1rem; max-width: 500px; line-height: 1.6; }
+
+        .btn {
+            margin: 10px;
+            padding: 12px 30px;
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: 0.3s;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .btn:hover { background: var(--gold); color: white; }
 
         /* --- NAVİGASYON OKU --- */
         .next-btn {
             position: absolute;
-            bottom: 40px;
+            bottom: 30px;
             cursor: pointer;
             font-size: 0.8rem;
             letter-spacing: 2px;
@@ -88,44 +105,51 @@
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
             40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
         }
 
-        .btn {
-            margin-top: 20px;
-            padding: 12px 30px;
-            border: 1px solid var(--gold);
-            background: transparent;
-            color: var(--gold);
+        /* --- YUKARI ÇIK BUTONU --- */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--gold);
+            color: white;
+            border-radius: 50%;
+            display: none;
+            justify-content: center;
+            align-items: center;
             text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            font-weight: bold;
-            transition: 0.3s;
-            border-radius: 5px;
+            font-size: 1.2rem;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        .btn:hover { background: var(--gold); color: white; }
+        /* --- WHATSAPP SEÇENEKLERİ --- */
+        .whatsapp-options {
+            margin-top: 20px;
+        }
 
-        #section2 { background-color: #fdfaf6; }
-        #section3 { background-color: #faf7f2; }
-        #section4 { background-color: #fdfaf6; }
-        #section5 { background-color: #f7f2eb; }
+        #section2, #section4 { background-color: #fdfaf6; }
+        #section3, #section5 { background-color: #faf7f2; }
 
     </style>
 </head>
 <body>
 
+    <a href="javascript:void(0)" id="backToTop" onclick="goToSection('section2')">↑</a>
+
     <div id="entry-overlay" onclick="goToSection('section2')">
         <div class="seal-container">
             <div class="seal">Z&O</div>
-            <p style="margin-top: 25px; color: var(--gold); letter-spacing: 3px; font-weight: bold;">DAVETİYEYİ AÇ</p>
+            <p style="margin-top: 25px; color: var(--gold); letter-spacing: 3px; font-weight: 600;">DAVETİYEYİ AÇ</p>
         </div>
     </div>
 
     <section id="section2">
         <h1>Zeynep & Ozan</h1>
-        <p>Hayatımızın en anlamlı gününde, sevgimizi sizinle paylaşmak için sabırsızlanıyoruz.</p>
+        <p>Hayatımızın en güzel yolculuğuna başlarken sizleri de yanımızda görmekten mutluluk duyarız.</p>
         <div class="next-btn" onclick="goToSection('section3')">Tarih Bilgisi ▼</div>
     </section>
 
@@ -137,16 +161,19 @@
     </section>
 
     <section id="section4">
-        <h2>Düğün Mekanı</h2>
-        <p>Moda Düğün Salonu<br>Kepez / Antalya</p>
+        <h2>Moda Düğün Salonu</h2>
+        <p>Kepez / Antalya</p>
         <a href="https://maps.app.goo.gl/PVbDEC21Ks684diM6" target="_blank" class="btn">Yol Tarifi Al</a>
         <div class="next-btn" onclick="goToSection('section5')">Anı Köşesi ▼</div>
     </section>
 
     <section id="section5">
         <h2>Anı Köşesi</h2>
-        <p>Bu mutlu günümüzden kareleri bizimle paylaşmak ister misiniz?</p>
-        <a href="https://wa.me/905XXXXXXXXX?text=Merhaba!%20Düğününüzden%20bu%20güzel%20kareleri%20sizinle%20paylaşmak%20istedik." target="_blank" class="btn">Fotoğraf Gönder</a>
+        <p>Bu mutlu günü bizimle fotoğraflayan dostlarımızdan kareler bekliyoruz.</p>
+        <div class="whatsapp-options">
+            <a href="https://wa.me/905345943185?text=Zeynep%20merhaba!%20Düğününüzden%20bu%20kareleri%20seninle%20paylaşmak%20istedim." target="_blank" class="btn">Zeynep'e Gönder</a>
+            <a href="https://wa.me/905373399904?text=Ozan%20selam!%20Düğünden%20yakaladığım%20bazı%20kareleri%20sana%20gönderiyorum." target="_blank" class="btn">Ozan'a Gönder</a>
+        </div>
     </section>
 
     <script>
@@ -161,6 +188,17 @@
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
 
+        // Kaydırma İzleme (Yukarı Çık Butonu İçin)
+        window.onscroll = function() {
+            var btn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "flex";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        // Geri Sayım
         const weddingDate = new Date("May 16, 2026 19:00:00").getTime();
         setInterval(function() {
             const now = new Date().getTime();
